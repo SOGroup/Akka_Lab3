@@ -34,8 +34,14 @@ public class MainLab3 {
         ActorRef actorB = system.actorOf(Props.create(ActorTransacciones.class,"B",operacionesB), "B");
         ActorRef actorBanco = system.actorOf(Props.create(ActorBanco.class), "Banco");
                 
-        actorBanco.tell(15, null);
-        actorBanco.tell(-5, null);
+        for (int i=0; i<operacionesA.length;i++){
+            actorBanco.tell(operacionesA[i], null);
+        }
+        
+        for (int i=0; i<operacionesB.length;i++){
+            actorBanco.tell(operacionesB[i], null);
+        }
+        
         //actorA.tell("Operar", null);
         //actorB.tell("Operar", null);
 
