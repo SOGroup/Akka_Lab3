@@ -32,9 +32,12 @@ public class MainLab3 {
         ActorSystem system = ActorSystem.create("Banco");
         ActorRef actorA = system.actorOf(Props.create(ActorTransacciones.class,"A",operacionesA), "A");
         ActorRef actorB = system.actorOf(Props.create(ActorTransacciones.class,"B",operacionesB), "B");
+        ActorRef actorBanco = system.actorOf(Props.create(ActorBanco.class), "Banco");
                 
-        actorA.tell("Operar", null);
-        actorB.tell("Operar", null);
+        actorBanco.tell(15, null);
+        actorBanco.tell(-5, null);
+        //actorA.tell("Operar", null);
+        //actorB.tell("Operar", null);
 
         system.shutdown();
         system.awaitTermination(); //JOIN

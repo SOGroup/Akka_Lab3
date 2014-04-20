@@ -5,7 +5,6 @@ public class ActorTransacciones extends UntypedActor {
 
     private int operaciones[];
     private String persona;
-    public static int SALDO = 0;
     
     public ActorTransacciones(String persona, int operaciones[]) {
         super();
@@ -21,10 +20,11 @@ public class ActorTransacciones extends UntypedActor {
             switch (s) {
                 case "Operar": {
                     for (int i = 0; i < operaciones.length; i++) {
-                        SALDO += operaciones[i];
-                        System.out.println(this.getPersona()+ i + ". Saldo despues de transaccion " + operaciones[i] + ": " + SALDO);
+                        //SALDO += operaciones[i];
+                        
+                        //System.out.println(this.getPersona()+ i + ". Saldo despues de transaccion " + operaciones[i] + ": " + SALDO);
                     }
-                    System.out.println("Saldo despues de operaciones de "+this.getPersona()+": "+SALDO);
+                    //System.out.println("Saldo despues de operaciones de "+this.getPersona()+": "+SALDO);
                     break;
                 }
                 default:
